@@ -1,5 +1,9 @@
 
-const path = require('path');
-var pathObj = path.parse(__filename);
+const os = require('os');
+var totalMem = os.totalmem();
+var hostname = os.hostname();
 
-console.log(pathObj);
+//Template string
+
+console.log(`Total Memory: ${totalMem}`);
+console.log(`Hostname: ${hostname}`);
