@@ -1,20 +1,16 @@
 
 const EventEmitter = require('events'); //class notation with its own methods
-const emitter = new EventEmitter(); //object, instance of class EventEmitter
-const log = require('./logger')
+
+const Logger = require('./logger')
+const logger = new Logger();
 
 //Register a listener
-emitter.on('messageLogged', (arg) => {
+logger.on('messageLogged', (arg) => {
   console.log('Listener called', arg)
 });
 
-emitter.on('sendLog', (arg) => {
-    log(arg.data)
+logger.on('sendLog', (arg) => {
+    console.log('log sent')
 });
 
-// Raise an event
-emitter.emit('messageLogged', {id: 1, url: 'http://'});
-//needs a previously defined listener for anything to happen
-
-// Raise the logging event (data: message)
-emitter.emit('sendLog', { data: 'message'});
+logger.log('message')
