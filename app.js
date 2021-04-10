@@ -1,5 +1,4 @@
-function sayHello(name) {
-    console.log("hello " + name);
-}
 
-sayHello("Kristin!")
+const log= require ('./logger') //assumes js extension
+
+log('message')
